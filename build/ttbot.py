@@ -76,7 +76,8 @@ else:
 					TwitterUserandComment = data.split("@")
 				 	twitterUser = TwitterUserandComment[1]
 				 	comment = TwitterUserandComment[2]
-					APIAddThank(network,userSent,user.attributes['twittername'].value,twitterUser,comment)
+				 	twittername = user.attributes['twittername'].value
+					APIAddThank(network,userSent,twittername,twitterUser,comment)
 				
 				
 			
