@@ -33,13 +33,13 @@ Change directory into build, and edit the config within the config directory.
 
 Once finished editing the config... simply Change Directory back into the build/ directory and type
 
-'''
+'''shell
 python ttbot.py
 '''
 
 or
 
-'''
+'''shell
 python3 ttbot.py
 '''
 
