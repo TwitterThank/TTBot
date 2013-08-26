@@ -1,7 +1,7 @@
 # Please see http://twitterthank.com/api/ircbot/config/examples for more information...
 
 # <SERVER> - Which server to connect to
-# Predefined options include Freenode (freenode), EFnet (efnet) and Dalnet (dalnet)
+# Predefined options include Freenode (freenode)
 # For custom servers, please input the host and port (server.com:port)
 # By default, we choose freenode
 SERVER = "freenode"
