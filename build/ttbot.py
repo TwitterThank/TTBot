@@ -1,7 +1,10 @@
-from twisted.words.protocol import irc
-from twisted.internet import protocol
+import socket
 
-#config
-from config import config
+network
+port
 
-class TTBot(irc.IRCClient):
+if SERVER == "freenode":
+	network = "chat.freenode.net"
+	port = "6666"
+else if SERVER == "efnet":
+	
