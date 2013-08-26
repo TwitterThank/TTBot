@@ -1,10 +1,23 @@
 import socket
+import urllib.request
+# XMl functions
+from xml.dom import minidom
 
+# Custom functions
+def APIAddThank(network, user1, user1twitter, user2twitter, comment):
+	request = urllib.request.urlopen("http://twitterthank.com/api/add/thank/?network="+network+"&user1="+user1+"&user1twitter="+user1twitter+"&user2twitter="+user2twitter+"&comment="+comment).read()
+	if request == "SUCCESS":
+		return True
+	else if request == "FAILURE":
+		return False
+	
+# define variables
 network
 port
 serv
 irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
 
+# check server
 if SERVER == "freenode":
 	network = "chat.freenode.net"
 	port = "6666"
@@ -38,6 +51,33 @@ else:
 	# besides, right now we only support public
 	if LISTENTYPE == "public":
 		# now while
-		if data.find('!ttbot thank') != -1:
+		while True:
+			userSent
+			if data.find('!ttbot thank') != -1:
+				userSent = data.split()[1]
+				userExist = False
+				xmldoc = minidom.parse(USERFILE)
+				userList = xmldoc.getElementsByTagName('users')
+				# Check if the user exists
+				for user in userList:
+					if user.attributes['ircname'].value == userSent:
+						userExist = True
+				if userExist == False:
+					irc.send('PRIVMSG ' + userSend + " :You have not registered your IRC name with your twitter account. Please do so now, by typing !ttbot register @yourTwitterUsername")
+				if userExist == True:
+					# get network
+					net
+					if serv:
+						net = serv
+					else:
+						net = network
+					# process
+					# split comment and twitter user
+					TwitterUserandComment = data.split("@")
+				 	twitterUser = TwitterUserandComment[1]
+				 	comment = TwitterUserandComment[2]
+					APIAddThank(network,userSent,user.attributes['twittername'].value,twitterUser,comment)
+				
+				
 			
 	
