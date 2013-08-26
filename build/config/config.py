@@ -23,3 +23,29 @@ SERVER = "freenode"
 # If you would like to change this, do so here
 USERFILE = "data/users.xml"
 
+# <IRCUSERNAME> - The username the irc bot will use
+# You should register this username, so no one else can take it, and make the ircbot admin on the channel
+# See IRCPASSWORD below
+IRCUSERNAME = "TTBOT-1292" # Change this, for example, to "YOURCHANNEL-TTBOT"
+
+# <IRCPASSWORD> - The password for the irc bot
+# See IRCUSERNAME
+IRCPASSWORD = "f9dusjfio312hio12hn" # Giberish ... after setting up the account, change this.
+
+# <AUTHCOMMAND> The command to authenticate on the server
+# Leave this blank if not a custom server
+AUTHCOMMAND = ""
+# Custom
+# AUTHCOMMAND = "!register ||username|| ||password||"
+# We use "||" to show variables
+
+# <LISTENTYPE> - Should the bot listen for private messages or !ttbot [command]
+# Choose "private" for private messages and "public" for !ttbot
+LISTENTYPE = "private"
+
+# Finished!
+# Thank you for choosing TTBOT and TwitterThank
+
+
+
+
