@@ -23,6 +23,10 @@ SERVER = "freenode"
 # If you would like to change this, do so here
 USERFILE = "data/users.xml"
 
+# <CHANNEL> Your irc channel
+# NOTE: Do not include the #
+CHANNEL = "YOURCHANNEL"
+
 # <IRCUSERNAME> - The username the irc bot will use
 # You should register this username, so no one else can take it, and make the ircbot admin on the channel
 # See IRCPASSWORD below
