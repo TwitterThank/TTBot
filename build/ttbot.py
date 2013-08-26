@@ -1,3 +1,8 @@
+# Note: This is really just a prototype... We should really make this better!
+# COPYRIGHT (c) TwitterThank.com
+# The TwitterThank.com IRC BOT
+# License: MIT
+# Please see TwitterThank.com/irc-bot for more information
 import socket
 import urllib.request
 # XMl functions
@@ -10,6 +15,8 @@ def APIAddThank(network, user1, user1twitter, user2twitter, comment):
 		return True
 	else if request == "FAILURE":
 		return False
+	else:
+		return None
 	
 # define variables
 network
@@ -53,6 +60,22 @@ else:
 		# now while
 		while True:
 			userSent
+			if data.find('!ttbot register') != -1:
+				TwitterUser = data.split("@")[2]
+				userSent = data.split()[1]
+				xmldoc = minidom.parse(USERFILE)
+				ele = xmldoc.createElement('user')
+				ele.attributes['twitter'] = TwitterUser
+				ele.attributes['ircname'] = userSent
+				ele.appendChild(doc.createTextNode(''))
+				with open(USERFILE, 'w') as myFile:
+    					myFile.write(ele.toxml())
+    				# finished
+    				# Please...
+    				if serv:
+    					irc.send('PRIVMSG ' + userSend + " :Please go to TwitterThank.com, register if you have not already, and go to Settings>IRC Users and create a new user. For the network, type in " + serv + ", and for the username, type in your current username on this IRC channel.")
+				else:
+					irc.send('PRIVMSG ' + userSend + " :Please go to TwitterThank.com, register if you have not already, and go to Settings>IRC Users and create a new user. For the network, type in " + network + ", and for the username, type in your current username on this IRC channel.")
 			if data.find('!ttbot thank') != -1:
 				userSent = data.split()[1]
 				userExist = False
@@ -76,9 +99,14 @@ else:
 					TwitterUserandComment = data.split("@")
 				 	twitterUser = TwitterUserandComment[1]
 				 	comment = TwitterUserandComment[2]
-				 	twittername = user.attributes['twittername'].value
-					APIAddThank(network,userSent,twittername,twitterUser,comment)
-				
+				 	twittername = user.attributes['twitter'].value
+					response = APIAddThank(net,userSent,twittername,twitterUser,comment)
+					if response == False:
+						irc.send('PRIVMSG ' + userSend + " :Could not submit the \"thank\"... This could be because you have not authorized your TwitterThank.com account to use this IRC username on this IRC network or you have not registered for TwitterThank yet."
+					if response == None:
+						irc.send('PRIVMSG ' + userSend + " :Our web services seem to be down or we could not submit the request. Please try again soon or check out our twitter - @TwitterThank for status updates")
+					if response == True:
+						irc.send('PRIVMSG ' + userSend + " :Authorized... Thank sent!")
 				
 			
 	
