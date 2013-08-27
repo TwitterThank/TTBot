@@ -11,7 +11,7 @@ Requirements
 -----
 Python 3 (important... cannot be python 2*)
 
-What does this script utilize
+What does this script include?
 ----
 urllib
 xmldom
