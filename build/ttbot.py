@@ -9,8 +9,8 @@ import urllib.request
 from xml.dom import minidom
 
 # Custom functions
-def APIAddThank(network, user1, user1twitter, user2twitter, comment):
-	request = urllib.request.urlopen("http://twitterthank.com/api/add/thank/?network="+network+"&user1="+user1+"&user1twitter="+user1twitter+"&user2twitter="+user2twitter+"&comment="+comment).read()
+def APIAddThank(network, api_key, user1, user1twitter, user2twitter, comment):
+	request = urllib.request.urlopen("http://twitterthank.com/api/add/thank/?network="+network+"%api_key="+api_key+"&user1="+user1+"&user1twitter="+user1twitter+"&user2twitter="+user2twitter+"&comment="+comment).read()
 	if request == "SUCCESS":
 		return True
 	else if request == "FAILURE":
@@ -100,7 +100,7 @@ else:
 				 	twitterUser = TwitterUserandComment[1]
 				 	comment = TwitterUserandComment[2]
 				 	twittername = user.attributes['twitter'].value
-					response = APIAddThank(net,userSent,twittername,twitterUser,comment)
+					response = APIAddThank(net,APIKEY,userSent,twittername,twitterUser,comment)
 					if response == False:
 						irc.send('PRIVMSG ' + userSend + " :Could not submit the \"thank\"... This could be because you have not authorized your TwitterThank.com account to use this IRC username on this IRC network or you have not registered for TwitterThank yet."
 					if response == None:
