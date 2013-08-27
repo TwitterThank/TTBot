@@ -10,7 +10,7 @@ from xml.dom import minidom
 
 # Custom functions
 def APIAddThank(network, api_key, user1, user1twitter, user2twitter, comment):
-	request = urllib.request.urlopen("http://twitterthank.com/api/add/thank/?network="+network+"%api_key="+api_key+"&user1="+user1+"&user1twitter="+user1twitter+"&user2twitter="+user2twitter+"&comment="+comment).read()
+	request = urllib.request.urlopen("http://twitterthank.com/api/add/thank/irc?network="+network+"%api_key="+api_key+"&user1="+user1+"&user1twitter="+user1twitter+"&user2twitter="+user2twitter+"&comment="+comment).read()
 	if request == "SUCCESS":
 		return True
 	else if request == "FAILURE":
