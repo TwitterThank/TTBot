@@ -2,6 +2,7 @@
 
 # <APIKEY> - The api key provided by TwitterThank.com
 # Please go to twitterthank.com/dashboard/api_key while logged in to get your own api key.
+APIKEY = "replace with api key"
 
 # <SERVER> - Which server to connect to
 # Predefined options include Freenode (freenode)
